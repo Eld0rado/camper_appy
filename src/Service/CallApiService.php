@@ -5,7 +5,11 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class CallApiService
 {
-
+    /**
+     * Appel = l'API
+     *
+     * @var [type]
+     */
     private $client;
     public $sessionToken;
 
