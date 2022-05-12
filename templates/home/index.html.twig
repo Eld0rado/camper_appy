@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!
+{% endblock %}
+
+{% block body %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			max-width: 800px;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+		fieldset {
+			background-color: #f0e6d3;
+			padding: 25px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<h1>Hello
+			{{ controller_name }}! ✅</h1>
+		<fieldset>
+			<div class="btnClient">
+				<input type="radio" id="client" name="client" value="client">
+				<label for="client">Client</label>
+			</div>
+			<div>
+				<input type="radio" id="proprio" name="proprio" value="proprio" checked>
+				<label for="proprio">Propriétaire</label>
+			</div>
+
+			<form id="form_id" method="post" name="myform">
+				<label>Form Action :</label>
+				<select id="form_action" onchange="select_change()">
+					<option value="">--- Set Form Action ---</option>
+					<option value="first.php">first.php</option>
+					<option value="second.php">second.php</option>
+					<option value="third.php">third.php</option>
+				</select>
+				<input type="button" value="Submit" onclick="myfunction()"/>
+			</form>
+			<pre>
+      {{ dump(user) }}
+  </pre>
+			<div class="formLogin">
+				<form method="post" accept-charset="UTF-8">
+					{# <select id="form_action" onChange="select_change()" > #}
+					{# {{ csrfInput() }} #}
+					<input type="hidden" name="action" value="users/login"> <label for="loginName">Username or email</label>
+					<input id="loginName" type="text" name="loginName">
+
+
+					<label for="password">Password</label>
+					<input id="password" type="password" name="password">
+
+					<label>
+						<input type="checkbox" name="rememberMe" value="1">
+						Remember me
+					</label>
+
+					<input type="submit" value="Login">
+
+					{% if errorMessage is defined %}
+						<p>{{ errorMessage }}</p>
+					{% endif %}
+				</form>
+
+				{# <p><a href="{{ url("forgotpassword") }}">Forgot your password?</a></p> #}
+			</div>
+		</div>
+	{% endblock %}
