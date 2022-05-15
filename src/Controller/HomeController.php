@@ -21,16 +21,18 @@ class HomeController extends AbstractController
     {
 
         $campings = $callApiService->userCampingsApi();
-        foreach ($campings as $key => $camping) {
-            //$villes[] = $camping->getContent[]
-            $camp = $callApiService->detailCampingsApi($camping['id']);
-            if (array_key_exists('city', $camp)) {
-                $villes[] = [$camp['city'], $camp['name'], $camping['id']];
-            } else {
-                $villes[] = ['inconnue', $camp['name'], $camping['id']];
+        if ($campings == true) {
+            foreach ($campings as $key => $camping) {
+                //$villes[] = $camping->getContent[]
+                $camp = $callApiService->detailCampingsApi($camping['id']);
+                if (array_key_exists('city', $camp)) {
+                    $villes[] = [$camp['city'], $camp['name'], $camping['id']];
+                } else {
+                    $villes[] = ['inconnue', $camp['name'], $camping['id']];
+                }
             }
         }
-        if ($villes == null || empty($villes)) {
+        if ($villes == null || empty($villes) || $camping == false) {
             $villes[] = ['Sans', 'campings', 'connus'];
         }
         // dd($villes);

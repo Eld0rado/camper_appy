@@ -122,7 +122,11 @@ class CallApiService
         }
     }
 
-
+    /**
+     * Appel à l'API proprio pour voir ses campings
+     * nécéssite user token owner
+     * @return void
+     */
     public function  ownerCampingsApi()
     {
         $tokenOwner =  $_COOKIE['USER_TOKENAPI'];
@@ -145,6 +149,11 @@ class CallApiService
         }
     }
 
+    /**
+     *  consultation des campings pour tous utilisateur
+     *
+     * @return void
+     */
     public function userCampingsApi()
     {
 
@@ -158,6 +167,18 @@ class CallApiService
             return $response->toArray();
         }
     }
+
+    /**
+     * Création d'un camping - necessite token Owner
+     *
+     * @param [type] $name
+     * @param [type] $desc
+     * @param [type] $ville
+     * @param [type] $nbBung
+     * @param [type] $nbTentes
+     * @param [type] $nbCar
+     * @return void
+     */
     public function createCampingsApi($name, $desc, $ville, $nbBung, $nbTentes, $nbCar)
     {
 
@@ -182,6 +203,13 @@ class CallApiService
             return $response->toArray();
         }
     }
+
+    /**
+     * Appel api information d'un camping
+     *
+     * @param [type] $id
+     * @return void
+     */
     public function detailCampingsApi($id)
     {
 

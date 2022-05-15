@@ -42,6 +42,7 @@ class CampingController extends AbstractController
             'campings' => $mescampings,
         ]);
     }
+
     /**
      * Appel de l'api et réccupération formulaire pour l'ajout d'un camping
      *

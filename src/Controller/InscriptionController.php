@@ -16,6 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class InscriptionController extends AbstractController
 {
+    /**
+     * Appel à l"api et reccuperation du formulaire pour créer utilisateur
+     *
+     * @param CallApiService $callApiService
+     * @param Request $request
+     * @return Response
+     */
     #[Route('/inscription', name: 'inscription')]
     public function index(CallApiService $callApiService, Request $request): Response
     {

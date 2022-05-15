@@ -33,16 +33,28 @@
 							{{ detail.bungalows.total}}</div>
 						<div class="">
 							Nb de Bungalows dispo :
-							{{ detail.bungalows.available}}</div>
+							{{ detail.bungalows.available}}
+							{% if detail.bungalows.available >= 1 %}
+								<button>Réserver</button>
+							{% endif %}
+						</div>
 						<div class="">
 							Nb de Tentes :
 							{{ detail.tentPlaces.total}}</div>
 						<div class="">Nb de Tentes dispo :
-							{{ detail.tentPlaces.available}}</div>
+							{{ detail.tentPlaces.available}}
+							{% if detail.tentPlaces.available >= 1 %}
+								<button>Réserver</button>
+							{% endif %}
+						</div>
 						<div class="">Nb de places de camping-car :
 							{{ detail.campingcarPlaces.total}}</div>
 						<div class="">Nb de places de camping-car dispos :
-							{{ detail.campingcarPlaces.available}}</div>
+							{{ detail.campingcarPlaces.available}}
+							{% if detail.campingcarPlaces.available >= 1 %}
+								<button>Réserver</button>
+							{% endif %}
+						</div>
 					</div>
 				</div>
 			{% endfor %}
