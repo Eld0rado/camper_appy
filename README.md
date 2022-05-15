@@ -1,18 +1,21 @@
-### Projet camping
+# Projet camping
 
 ## Installation 
 
-Nécéssite composer d'installer et php
+Nécéssite d'installer composer et php
 
-``` 
-cd camper_appy
-composer  req symfony/web-server-bundle --dev
-php bin/console server:run
+
 ```
+git clone git@github.com:Eld0rado/camper_appy.git
+cd camper_appy
+composer install
+php -S 127.0.0.1:8000 -t public
+```
+
 
 ## Navigation 
 
-localhost:8000
+http://127.0.0.1:8000
 
 ou indiqué
 
