@@ -33,11 +33,12 @@
 						<h3>Lieu :
 							{{infos.0}}</h3>
 						<h3>{{infos.1}}</h3>
-						<a href="{{path('camp_detail', {'id' :infos.2 } )}}">
-							<button>
-								Plus d'infos</button>
-						</a>
-
+						{% if infos.2 != "connus" %}
+							<a href="{{path('camp_detail', {'id' :infos.2 } )}}">
+								<button>
+									Plus d'infos</button>
+							</a>
+						{% endif %}
 					</div>
 				</div>
 			{% endfor %}
