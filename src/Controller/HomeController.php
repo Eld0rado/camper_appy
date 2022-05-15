@@ -16,10 +16,17 @@ class HomeController extends AbstractController
 {
 
 
+
     #[Route('/', name: 'app_home')]
     public function index(CallApiService $callApiService): Response
     {
-
+        if (!array_key_exists('USER_TOKENAPI', $_COOKIE)) {
+            return  $this->redirectToRoute('inscription');
+            if (empty($_COOKIE['USER_TOKENAPI'])) {
+                return $this->redirectToRoute('connexion');
+            }
+        }
+        $villes = null;
         $campings = $callApiService->userCampingsApi();
         if ($campings == true) {
             foreach ($campings as $key => $camping) {
