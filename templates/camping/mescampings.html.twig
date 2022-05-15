@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Campings
+{% endblock %}
+
+{% block body %}
+	<div class="example-wrapper">
+		<div class="all">
+			{% for camping in campings %}
+				<div class="card">
+					<h4 class="">
+						Camping</h4>
+					<a href="{{path('camp_detail', {'id' :camping.id} )}}">
+						<button>{{camping.id}}</button>
+					</a>
+
+				</div>
+			{% endfor %}
+			<a href="{{path('camp_ajout')}}">
+				<button>Ajout Camping</button>
+			</a>
+		</div>
+
+	</div>
+{% endblock %}

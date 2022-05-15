@@ -22,55 +22,25 @@
 	</style>
 
 	<div class="example-wrapper">
-		<h1>Hello
-			{{ controller_name }}! ✅</h1>
-		<fieldset>
-			<div class="btnClient">
-				<input type="radio" id="client" name="client" value="client">
-				<label for="client">Client</label>
-			</div>
-			<div>
-				<input type="radio" id="proprio" name="proprio" value="proprio" checked>
-				<label for="proprio">Propriétaire</label>
-			</div>
+		<h2>
+			{{ controller_name }}</h2>
 
-			<form id="form_id" method="post" name="myform">
-				<label>Form Action :</label>
-				<select id="form_action" onchange="select_change()">
-					<option value="">--- Set Form Action ---</option>
-					<option value="first.php">first.php</option>
-					<option value="second.php">second.php</option>
-					<option value="third.php">third.php</option>
-				</select>
-				<input type="button" value="Submit" onclick="myfunction()"/>
-			</form>
-			<pre>
-      {{ dump(user) }}
-  </pre>
-			<div class="formLogin">
-				<form method="post" accept-charset="UTF-8">
-					{# <select id="form_action" onChange="select_change()" > #}
-					{# {{ csrfInput() }} #}
-					<input type="hidden" name="action" value="users/login"> <label for="loginName">Username or email</label>
-					<input id="loginName" type="text" name="loginName">
+		<div class="all">
+			{% for infos in data %}
 
+				<div class="card">
+					<div class="container">
+						<h3>Lieu :
+							{{infos.0}}</h3>
+						<h3>{{infos.1}}</h3>
+						<a href="{{path('camp_detail', {'id' :infos.2 } )}}">
+							<button>
+								Plus d'infos</button>
+						</a>
 
-					<label for="password">Password</label>
-					<input id="password" type="password" name="password">
-
-					<label>
-						<input type="checkbox" name="rememberMe" value="1">
-						Remember me
-					</label>
-
-					<input type="submit" value="Login">
-
-					{% if errorMessage is defined %}
-						<p>{{ errorMessage }}</p>
-					{% endif %}
-				</form>
-
-				{# <p><a href="{{ url("forgotpassword") }}">Forgot your password?</a></p> #}
-			</div>
+					</div>
+				</div>
+			{% endfor %}
 		</div>
-	{% endblock %}
+	</div>
+{% endblock %}

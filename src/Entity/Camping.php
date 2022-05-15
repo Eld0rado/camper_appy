@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CampingRepository;
 use Doctrine\ORM\Mapping as ORM;
+use JsonSerializable;
 
 #[ORM\Entity(repositoryClass: CampingRepository::class)]
 class Camping

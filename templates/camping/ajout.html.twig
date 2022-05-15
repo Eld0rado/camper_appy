@@ -4,27 +4,31 @@
 {% endblock %}
 
 {% block body %}
-	<style>
-		.example-wrapper {
-			margin: 1em auto;
-			max-width: 950px;
-			width: 95%;
-			font: 18px / 1.5 sans-serif;
-		}
-		.example-wrapper code {
-			background: #F5F5F5;
-			padding: 2px 6px;
-		}
-	</style>
+	{% for message in app.flashes('notice') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('warning') %}
+		<div class="alert alert-warning">
+			{{ message }}
+		</div>
+	{% endfor %}
 	<div class="example-wrapper">
-		<h3>{{controller_name}}</h3>
+		<div class="all">
+			<div class="card" style="width:500px;">
 
+				<h3>{{controller_name}}</h3>
+				{{ form_start(formCamp) }}
+				{{ form_row(formCamp.nomCamping) }}
+				{{ form_row(formCamp.desc) }}
+				{{ form_row(formCamp.ville) }}
+				{{ form_row(formCamp.nbTentes) }}
+				{{ form_row(formCamp.nbBungalow) }}
+				{{ form_row(formCamp.nbCar) }}
+				{{ form_end(formCamp) }}
 
-		{{ form_start(formCamp) }}
-		{{ form_widget(formCamp.nomCamping) }}
-		{{ form_widget(formCamp.nbBungalow) }}
-		{{ form_widget(formCamp.information ) }}
-		{{ form_widget(formCamp.submit) }}
-		{{ form_end(formCamp) }}
+			</div>
+		</div>
 	</div>
 {% endblock %}
